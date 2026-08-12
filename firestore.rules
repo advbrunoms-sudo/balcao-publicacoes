@@ -1,0 +1,18 @@
+rules_version = '2';
+
+// Regras simples: qualquer pessoa com o link do site pode ler e gravar
+// SOMENTE na coleção "pedidos". Nenhuma outra coleção fica acessível.
+// Isso é suficiente pra um app interno de uso restrito ao balcão de
+// publicações, sem informação sensível. Se um dia quiser travar mais
+// (exigir login, por exemplo), me avise que ajusto.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /pedidos/{pedidoId} {
+      allow read, write: if true;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

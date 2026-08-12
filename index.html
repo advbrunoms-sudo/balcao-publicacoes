@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Balcão de Publicações</title>
+
+<meta name="theme-color" content="#2F4858" />
+<link rel="manifest" href="./manifest.json" />
+<link rel="apple-touch-icon" href="./icon-192.png" />
+<link rel="icon" href="./icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Balcão" />
+
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="eyebrow">SALÃO DO REINO</div>
+    <h1>Balcão de Publicações</h1>
+  </div>
+  <div class="contadores">
+    <div class="contador-item">
+      <span class="contador-num pendente" id="cont-pendentes">0</span>
+      <span class="contador-label">pendentes</span>
+    </div>
+    <div class="contador-item">
+      <span class="contador-num entregue" id="cont-entregues">0</span>
+      <span class="contador-label">entregues</span>
+    </div>
+  </div>
+</header>
+
+<div class="aviso-offline oculto" id="aviso-offline">
+  ⚠ Sem internet agora — mostrando os últimos dados salvos neste aparelho.
+</div>
+
+<div class="corpo">
+
+  <button class="botao-novo" id="botao-novo">+ Novo pedido</button>
+
+  <div class="form-card oculto" id="form-card">
+    <div class="form-titulo">Anotar pedido</div>
+
+    <form id="form-pedido" novalidate>
+      <label class="campo">
+        Nome do irmão ou irmã
+        <input type="text" id="campo-nome" placeholder="Ex.: Irmã Marlene" autocomplete="off" />
+      </label>
+
+      <div class="linha-dupla" style="margin-top:12px;">
+        <label class="campo" style="flex: 0 0 auto; min-width: 140px;">
+          Tipo
+          <select id="campo-tipo">
+            <option value="Bíblia">Bíblia</option>
+            <option value="Livro" selected>Livro</option>
+            <option value="Brochura">Brochura</option>
+            <option value="Revista">Revista</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </label>
+        <label class="campo" style="flex: 0 0 90px;">
+          Qtd.
+          <input type="number" id="campo-quantidade" min="1" value="1" />
+        </label>
+      </div>
+
+      <label class="campo" style="margin-top:12px;">
+        Título da publicação
+        <input type="text" id="campo-titulo" placeholder='Ex.: "Chegue a Ser Feliz na Vida Familiar"' autocomplete="off" />
+      </label>
+
+      <label class="campo" style="margin-top:12px;">
+        Anotado por
+        <select id="campo-anotado-por">
+          <option value="">Selecione...</option>
+          <option value="Bruno">Bruno</option>
+          <option value="Diemerson">Diemerson</option>
+        </select>
+      </label>
+
+      <label class="campo" style="margin-top:12px;">
+        Observação (opcional)
+        <input type="text" id="campo-obs" placeholder="Ex.: é urgente, encomendar antecipado..." autocomplete="off" />
+      </label>
+
+      <div class="aviso-duplicado oculto" id="bloco-duplicado" style="margin-top:12px;">
+        <div class="aviso-duplicado-titulo">⚠ Já existe pedido igual</div>
+        <div class="aviso-duplicado-texto" id="duplicado-texto"></div>
+        <ul class="aviso-duplicado-lista" id="duplicado-lista"></ul>
+        <div class="aviso-duplicado-botoes">
+          <button type="button" class="botao-salvar" id="botao-cadastrar-mesmo-assim">Cadastrar mesmo assim</button>
+          <button type="button" class="botao-cancelar" id="botao-revisar-pedido">Revisar pedido</button>
+        </div>
+      </div>
+
+      <div class="form-botoes" id="bloco-botoes-form" style="margin-top:12px;">
+        <button type="submit" class="botao-salvar">Salvar pedido</button>
+        <button type="button" class="botao-cancelar" id="botao-cancelar-form">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+  <input type="text" class="input-busca" id="input-busca" placeholder="Buscar por nome ou publicação..." />
+
+  <div class="tabs">
+    <button class="tab ativa" data-filtro="pendentes">Pendentes</button>
+    <button class="tab" data-filtro="entregues">Entregues</button>
+    <button class="tab" data-filtro="todos">Todos</button>
+  </div>
+
+  <div class="aviso-erro oculto" id="aviso-erro">
+    <span id="texto-erro"></span>
+    <button type="button" class="botao-tentar-novamente" id="botao-tentar-novamente">Fechar aviso</button>
+  </div>
+
+  <div class="vazio oculto" id="vazio"></div>
+  <div class="lista" id="lista"></div>
+
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
