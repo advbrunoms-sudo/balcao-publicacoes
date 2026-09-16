@@ -1,17 +1,15 @@
 {
-  "name": "Balcão de Publicações",
-  "short_name": "Balcão",
-  "description": "Controle de pedidos de publicações do Salão do Reino",
+  "name": "Carrinho de Publicação",
+  "short_name": "Carrinho",
+  "description": "Escala de duplas e rodízio do carrinho de publicação",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#EDE6D3",
-  "theme_color": "#2F4858",
-  "orientation": "portrait",
+  "background_color": "#F6F4EE",
+  "theme_color": "#3F6C51",
+  "orientation": "portrait-primary",
   "icons": [
-    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }
